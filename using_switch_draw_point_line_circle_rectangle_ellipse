@@ -1,0 +1,89 @@
+#include <stdio.h> 
+#include <graphics.h> 
+ 
+int main() 
+{ 
+    int gd,gm; 
+    detectgraph(&gd,&gm); 
+    initgraph(&gd,&gm,"C://TC/BGI"); 
+    outtextxy(125,10,"point line circle rectangle eclipce using graphics in c"); 
+    setcolor(GREEN); 
+    int choice; 
+    while(1) 
+    { 
+        printf("0 --> exit\n"); 
+        printf("1 --> point\n"); 
+        printf("2 --> line\n"); 
+        printf("3 --> circle\n"); 
+        printf("4 --> rectangle\n"); 
+        printf("5 --> eclipse\n"); 
+        printf("ENTER YOUR CHOICE\n"); 
+        scanf("%d",&choice); 
+        switch(choice) 
+        { 
+            case 0:exit(EXIT_SUCCESS); 
+                break; 
+            case 1:int x,y,c; 
+                    printf("enter x coodinate of point "); 
+                    scanf("%d",&x); 
+                    printf("enter y coodinate of point "); 
+                    scanf("%d",&y); 
+                    printf("enter any no between 0 to 100 "); 
+                    scanf("%d",&c); 
+                    putpixel(x,y,c); 
+                    break; 
+            case 2:int x1,x2,y1,y2; 
+                    printf("enter starting x coodinate of line "); 
+                    scanf("%d",&x1); 
+                    printf("enter starting y coodinate of line "); 
+                    scanf("%d",&y1); 
+                    printf("enter ending x coodinate of line "); 
+                    scanf("%d",&x2); 
+                    printf("enter ending y coodinate of line "); 
+                    scanf("%d",&y2); 
+                    line(x1,y1,x2,y2); 
+                    break; 
+            case 3:int xcenter,ycenter,radius; 
+                    printf("enter center's x coodinate of circle "); 
+                    scanf("%d",&xcenter); 
+                    printf("enter center's y coodinate of circle "); 
+                    scanf("%d",&ycenter); 
+                    printf("enter radius of circle "); 
+                    scanf("%d",&radius); 
+                    circle(xcenter,ycenter,radius); 
+                    break; 
+            case 4:int xs,ys,xe,ye; 
+                    printf("enter first point  x coodinate of rectangle "); 
+                    scanf("%d",&xs); 
+                    printf("enter first point  y coodinate of rectangle "); 
+                    scanf("%d",&ys); 
+                    printf("enter first's diagonal point  x coodinate of rectangle "); 
+                    scanf("%d",&xe); 
+                    printf("enter first's diagonal point  y coodinate of rectangle "); 
+                    scanf("%d",&ye); 
+                    rectangle(xs,ys,xe,ye); 
+                    break; 
+            case 5:int xcent,ycent,stangle,enangle,xradius,yradius; 
+                    printf("enter center x coodinate of ellipse "); 
+                    scanf("%d",&xcent); 
+                    printf("enter center y coodinate of ellipse "); 
+                    scanf("%d",&ycent); 
+                    printf("enter starting angle of ellipse between 0 to 360 "); 
+                    scanf("%d",&stangle); 
+                    printf("enter ending angle of ellipse between 0 to 360 "); 
+                    scanf("%d",&enangle); 
+                    printf("enter x radius of ellipse "); 
+                    scanf("%d",&xradius); 
+                    printf("enter y radius of ellipse "); 
+                    scanf("%d",&yradius); 
+                    ellipse(xcent,ycent,stangle,enangle,xradius,yradius); 
+                    break; 
+            default: 
+                printf("enter valid choice\n"); 
+ 
+        } 
+    } 
+    getch(); 
+    closegraph(); 
+    return 0; 
+} 
