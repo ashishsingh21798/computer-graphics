@@ -1,0 +1,66 @@
+#include <stdio.h> 
+#include <graphics.h> 
+#include <math.h> 
+ 
+int main() 
+{ 
+    int gd,gm; 
+    detectgraph(&gd,&gm); 
+    initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); 
+    outtextxy(125, 10, "NATIONAL FLAG Using Graphics in C"); 
+ 
+    //pole of the flag
+    line(100,30,100,400); 
+    line(100,30,99,400); 
+    line(99,30,98,400); 
+    line(98,30,97,400); 
+ 
+    //first color of the flag
+    setcolor(RED); 
+    rectangle(100,35,400,100); 
+    setfillstyle(SOLID_FILL,RED); 
+    floodfill(101,36,RED); 
+ 
+    //second color of the flag
+    setcolor(WHITE); 
+    rectangle(100,100,400,165); 
+    setfillstyle(SOLID_FILL,WHITE); 
+    floodfill(101,101,WHITE); 
+ 
+    //third color of the flag
+    setcolor(GREEN); 
+    rectangle(100,165,400,230); 
+    setfillstyle(SOLID_FILL,GREEN); 
+    floodfill(101,166,GREEN); 
+ 
+    //wheel of the flag
+    setcolor(BLUE); 
+    circle(250,132.5,32.5); 
+    int a=250,b=132.5,i,r=32.5,x,y; 
+    float pi=3.14159; 
+ 
+    //spick of the wheel
+    for(i=0;i<=360;i=i+15) 
+    { 
+        x=r*cos(i*pi/180); 
+        y=r*sin(i*pi/180); 
+        line(a,b,a+x,b+y); 
+ 
+    } 
+    
+    //base of the flag
+    setcolor(WHITE); 
+    line(75,400,125,400); 
+    line(75,400,75,425); 
+    line(125,400,125,425); 
+    line(50,425,150,425); 
+    line(50,425,50,450); 
+    line(150,425,150,450); 
+    line(25,450,175,450); 
+    line(25,475,175,475); 
+    line(25,450,25,475); 
+    line(175,450,175,475); 
+    getch(); 
+    closegraph(); 
+    return 0; 
+} 
