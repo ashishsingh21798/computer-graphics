@@ -1,0 +1,44 @@
+#include <graphics.h> 
+#include <conio.h> 
+#include <stdio.h> 
+#include <math.h> 
+ 
+int main() 
+{ 
+    int gm,gd=DETECT,step,k,dx,dy; 
+    float x,y,x1,x2,y1,y2,xincr,yincr; 
+ 
+    initgraph(&gd,&gm,"C://TC//BGI"); 
+    printf("\nenter the values of starting points ,(x1,y1)\n"); 
+    scanf("%f%f",&x1,&y1); 
+    printf("\nenter the values of ending points ,(x2,y2)\n"); 
+    scanf("%f%f",&x2,&y2); 
+ 
+    dx=x2-x1; 
+    dy=y2-y1; 
+    if(abs(dx)>abs(dy)) 
+    { 
+        step = dx; 
+    } 
+    else 
+    { 
+        step = dy; 
+    } 
+    xincr = dx/step; 
+    yincr = dy/step; 
+ 
+    x = abs(x1); 
+    y = abs(y1); 
+ 
+    putpixel(x,y,RED); 
+ 
+    for(k=0;k<step;k++) 
+    { 
+ 
+        x = abs(x + xincr); 
+        y = abs(y + yincr); 
+        putpixel(x,y,WHITE); 
+    } 
+    getch(); 
+    return 0; 
+} 
