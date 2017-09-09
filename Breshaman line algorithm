@@ -1,0 +1,53 @@
+ #include <graphics.h> 
+ #include <conio.h> 
+ #include <stdio.h> 
+ #include <math.h> 
+ 
+ int main() 
+ { 
+     int d,ds,dt,dx,dy,gd=DETECT,gm; 
+     float x,y,x1,y1,x2,y2,xend; 
+ 
+     initgraph(&gd,&gm,"C://TC/BGI"); 
+     printf("\nEnter the values of Starting points,(x1,y1)\n"); 
+     scanf("%f%f",&x1,&y1); 
+     printf("\nEnter the values of ending points,(x2,y2)\n"); 
+     scanf("%f%f",&x2,&y2); 
+ 
+     dx = x2 - x1; 
+     dy = y2 - y1; 
+     d = 2*dy - dx; 
+     ds = 2*dy; 
+     dt = 2*(dy - dx); 
+ 
+     if(x1>x2) 
+     { 
+         x=x2; 
+         y=y2; 
+         xend = x1; 
+     } 
+     else 
+     { 
+         x = x1; 
+         y = y1; 
+         xend = x2; 
+     } 
+     putpixel(x,y,WHITE); 
+ 
+     while(x<xend) 
+     { 
+         x = x+1; 
+         if(d<0) 
+         { 
+             d = d + ds; 
+         } 
+         else 
+         { 
+             d = d + dt; 
+             y = y + 1; 
+         } 
+         putpixel(x,y,WHITE); 
+     } 
+     getch(); 
+     return 0; 
+ } 
