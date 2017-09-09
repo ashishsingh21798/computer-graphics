@@ -1,0 +1,136 @@
+#include <stdio.h> 
+#include <graphics.h> 
+#include <conio.h> 
+int main() 
+{ 
+    int gd = DETECT,gm; 
+ 
+ 
+ 
+ 
+    //graph initialization 
+    initgraph(&gd,&gm,"C:\\TC\\BGI"); 
+ 
+ 
+    //text 
+    settextstyle(BOLD_FONT,HORIZ_DIR,3); 
+    outtextxy(30,8,"HUT using C in computer graphics"); 
+ 
+ 
+    //polygons coordinates 
+    int point[] = {200,200,250,100,300,200,200,200}; 
+    int points[] = {300,200,500,200,450,100,250,100,300,200}; 
+    setcolor(WHITE); 
+ 
+ 
+ 
+ 
+    //door rectangle 
+    rectangle(200,200,300,325); 
+ 
+ 
+    //window rectangle 
+    rectangle(300,200,500,325); 
+ 
+ 
+    //door 
+    rectangle(230,260,270,325); 
+ 
+ 
+    //window 
+    rectangle(350,225,450,275); 
+ 
+ 
+    //window vertical line 
+    line(400,225,400,275); 
+ 
+ 
+    //window horizental line 
+    line(350,250,450,250); 
+ 
+ 
+    //door roof 
+    drawpoly(4,point); 
+ 
+ 
+    //window roof 
+    drawpoly(5,points); 
+ 
+ 
+    //window roof color 
+    setfillstyle(SLASH_FILL,GREEN); 
+    floodfill(251,101,WHITE); 
+ 
+ 
+    //door roof color 
+    setfillstyle(SOLID_FILL,GREEN); 
+    floodfill(251,110,WHITE); 
+ 
+ 
+    //window rectangle color 
+    setfillstyle(LINE_FILL,YELLOW); 
+    floodfill(301,201,WHITE); 
+ 
+ 
+    //door rectangle color 
+    setfillstyle(CLOSE_DOT_FILL,MAGENTA); 
+    floodfill(201,201,WHITE); 
+ 
+ 
+    //window color 
+    setfillstyle(SLASH_FILL,BLUE); 
+    floodfill(351,226,WHITE); 
+    floodfill(401,226,WHITE); 
+    floodfill(351,251,WHITE); 
+    floodfill(401,251,WHITE); 
+ 
+ 
+    //door color 
+    setfillstyle(SOLID_FILL,DARKGRAY); 
+    floodfill(231,261,WHITE); 
+ 
+ 
+    //chimney 
+    rectangle(405,65,420,100); 
+    setfillstyle(SOLID_FILL,YELLOW); 
+    floodfill(406,66,WHITE); 
+ 
+ 
+ 
+ 
+   //smoke 
+   int i,j; 
+ 
+ 
+   for(i=406;i<419;i=i+2) 
+   { 
+       for(j=62;j>50;j=j-2) 
+       { 
+           putpixel(i,j, DARKGRAY); 
+ 
+ 
+       } 
+   } 
+ 
+ 
+    for(i=406;i<420;i=i+3) 
+   { 
+       for(j=50;j>30;j=j-3) 
+       { 
+           putpixel(i,j, DARKGRAY); 
+ 
+ 
+       } 
+   } 
+ 
+ 
+ 
+ 
+ 
+ 
+    getch(); 
+   //close graph 
+    closegraph(); 
+    return 0; 
+} 
+ 
